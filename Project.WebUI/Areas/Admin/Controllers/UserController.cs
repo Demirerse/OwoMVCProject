@@ -1,5 +1,6 @@
 ﻿using Project.BLL.DesignPattern.GenericRepository.ConcRep;
 using Project.ENTITIES.Models;
+using Project.WebUI.AuthenticationClasses;
 using Project.WebUI.VMClasses;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Web.Mvc;
 
 namespace Project.WebUI.Areas.Admin.Controllers
 {
+    [AdminAuthentication]
     public class UserController : Controller
     {
         private readonly AppUserRepository _uRep;
@@ -57,10 +59,9 @@ namespace Project.WebUI.Areas.Admin.Controllers
 
             AppUser toBeUpdatedUser = _uRep.FirstOrDefault(x => x.ID == apvm.AppUser.ID);
             UserProfile toBeUpdatedUserProfile = _upRep.FirstOrDefault(x => x.ID == apvm.Profile.ID);
-
+            toBeUpdatedUser.UserName = apvm.AppUser.UserName;
             toBeUpdatedUser.Email = apvm.AppUser.Email;
-            toBeUpdatedUser.Password = apvm.AppUser.Password;
-            toBeUpdatedUser.ConfirmPassword = apvm.AppUser.ConfirmPassword;
+            //todo mail aktivasyonu eklemek mantıklı mı? Sor
             toBeUpdatedUser.Role = apvm.AppUser.Role;
 
             toBeUpdatedUserProfile.FirstName = apvm.Profile.FirstName;

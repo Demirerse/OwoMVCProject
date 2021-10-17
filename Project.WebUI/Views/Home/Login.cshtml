@@ -26,7 +26,7 @@
 
                     @Html.TextBoxFor(x => x.AppUser.UserName, new { @class = "form-control", placeholder = "Kullanıcı ismi" })
                     @Html.ValidationMessageFor(x => x.AppUser.UserName)
-        <br />
+                    <br />
                     @Html.PasswordFor(x => x.AppUser.Password, new { @class = "form-control", placeholder = "Sifre giriniz" })
                     @Html.ValidationMessageFor(x => x.AppUser.Password)
 
@@ -39,6 +39,7 @@
                     <div>
                         @Html.ActionLink("Üye Ol", "RegisterNow", "Register")
                     </div>
+                    <a href="@Url.Action("LostPassword","Register")" class="login__tracker form__tracker">Şifremi Unuttum</a>
 
 
                 </div>}

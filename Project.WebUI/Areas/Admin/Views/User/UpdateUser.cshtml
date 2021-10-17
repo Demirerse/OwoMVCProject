@@ -1,6 +1,7 @@
 ﻿@model AppUserVM
 @{
     ViewBag.Title = "UpdateUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="right_col" role="main">
@@ -32,14 +33,24 @@
                     </div>
                     <div class="x_content">
                         <br />
-                        @using (Html.BeginForm("UpdateUser", "User", new { Area="Admin"}, FormMethod.Post, new {@class= "form-horizontal form-label-left" }))
+                        @using (Html.BeginForm("UpdateUser", "User", new { Area = "Admin" }, FormMethod.Post, new { @class = "form-horizontal form-label-left" }))
                         {
                             @Html.HiddenFor(x => x.AppUser.ID)
                             @Html.HiddenFor(x => x.Profile.ID)
 
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                                    Ad <span class="required">*</span>
+                                    Kullanıcı Adı <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.TextBoxFor(x => x.AppUser.UserName, new { @class = "form-control col-md-7 col-xs-12" })
+                                    <span class="fa fa-user form-control-feedback right"></span>
+                                    @Html.ValidationMessageFor(x => x.AppUser.UserName)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                    İsim <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     @Html.TextBoxFor(x => x.Profile.FirstName, new { @class = "form-control col-md-7 col-xs-12" })
@@ -78,25 +89,7 @@
                                     @Html.ValidationMessageFor(x => x.AppUser.Email)
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Password <span class="required">*</span></label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    @Html.PasswordFor(x => x.AppUser.Password, new { @class = "form-control col-md-7 col-xs-12" })
-                                    <span class="fa fa-envelope form-control-feedback right"></span>
-                                    @Html.ValidationMessageFor(x => x.AppUser.Password)
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">ConfirmPasword <span class="required">*</span></label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    @Html.PasswordFor(x => x.AppUser.ConfirmPassword, new { @class = "form-control col-md-7 col-xs-12" })
-                                    <span class="fa fa-envelope form-control-feedback right"></span>
-                                    @Html.ValidationMessageFor(x => x.AppUser.ConfirmPassword)
-                                </div>
-                            </div>
-
-
-
+                            
                             <div class="form-group">
                                 <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Adres <span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">

@@ -31,8 +31,9 @@
                         <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
-                                    <th>Ad</th>
-                                    <th>Soyad</th>
+                                    <th>Kullanıcı Adı</th>
+                                    <th>İsim</th>
+                                    <th>Soyisim</th>
                                     <th>E-Mail</th>
                                     <th>Rol</th>
                                     <th>Aktivasyon</th>
@@ -45,11 +46,10 @@
                                 @foreach (AppUser item in Model.AppUsers)
                                 {
                                     <tr>
+                                        <td>@item.UserName</td>
                                         <td>@item.UserProfile.FirstName</td>
                                         <td>@item.UserProfile.LastName</td>
                                         <td>@item.Email</td>
-
-                                        
                                         <td>@item.Role</td>
 
                                         @if (item.Active == true)

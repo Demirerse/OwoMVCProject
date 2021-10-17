@@ -95,6 +95,49 @@ namespace Project.WebUI.Controllers
             Session.Clear();
             return RedirectToAction("Index", "Home");
         }
+        //get /lostPassword
+        public ActionResult LostPassword() => View();
+
+        //post / lostPassword
+        [HttpPost]
+        public ActionResult LostPassword(AppUserVM apvm)
+        {
+            AppUser resetPassUser = _apRep.FirstOrDefault(x => x.Email == apvm.AppUser.Email);
+            if (resetPassUser != null)
+            {
+                string gonderilecekMail = "Şifrenizi yanda bulunan bağlantıya tıklayarak sıfırlayabilirsiniz. https://localhost:44373/Register/ResetPassword/" + resetPassUser.ActivationCode;
+                MailSender.Send(receiver: resetPassUser.Email, body: gonderilecekMail, subject: "Şifre Sıfırlama İsteği");
+                ViewBag.Bilgi = "Şifre sıfırlama bağlantınız email adresinize başarılı bir şekilde gönderilmiştir.";
+            }
+            else
+            {
+                ViewBag.Bilgi = "Kayıtlı kullanıcı bilgisi bulunamadı";
+            }
+            return View();
+        }
+        //get /resetPassword
+        public ActionResult ResetPassword(Guid id)
+        {
+            AppUserVM apvm = new AppUserVM();
+            apvm.AppUser = _apRep.FirstOrDefault(x => x.ActivationCode == id);
+
+            return View(apvm);
+        }
+        //post/ resetPassword
+        [HttpPost]
+        public ActionResult ResetPassword(AppUser appUser)
+        {
+            //if (!ModelState.IsValid)return View();
+
+            AppUser toBeUpdated = _apRep.FirstOrDefault(x => x.ActivationCode == appUser.ActivationCode);
+            toBeUpdated.Password = DantexCrypt.Crypt(appUser.Password);
+            toBeUpdated.ConfirmPassword = DantexCrypt.Crypt(appUser.ConfirmPassword);
+            _apRep.Update(toBeUpdated);
+
+            TempData["ResetInfo"] = "Şifreniz başarılı bir şekilde güncellenmiştir.";
+
+            return RedirectToAction("Login", "Home");
+        }
 
     }
 }

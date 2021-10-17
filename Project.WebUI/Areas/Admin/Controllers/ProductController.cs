@@ -76,7 +76,7 @@ namespace Project.WebUI.Areas.Admin.Controllers
         public ActionResult UpdateProduct(Product product, HttpPostedFileBase resim)
         {
             if (!ModelState.IsValid) return View();
-            //todo update ile resim boş geliyor ve categoryID null referance exception fırlatıyor
+            //todo update ile resim boş geliyor ve categoryID nullabke olmasına rağmen null referance exception fırlatıyor
             product.ImagePath = ImageUploader.UploadImage("/Pictures/", resim);
             _pRep.Update(product);
             return RedirectToAction("ProductList");

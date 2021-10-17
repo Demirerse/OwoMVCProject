@@ -44,6 +44,15 @@ namespace Project.WebUI.Controllers
             return View(pavm);
         }
 
+        public ActionResult ProductDetail(int id)
+        {
+            ProductVM pvm = new ProductVM()
+            {
+                Product=_pRep.Find(id)
+            };
+            return View(pvm);
+        }
+
         public ActionResult AddToCart(int id)
         {
             //todo sepete ürün ekledikten sonra üye olup ürünlerin sepette kalmasını sağla!!
@@ -58,6 +67,7 @@ namespace Project.WebUI.Controllers
             Cart c = Session["scart"] == null ? new Cart() : Session["scart"] as Cart;
             Product eklenecekUrun = _pRep.Find(id);
 
+            
             CartItem ci = new CartItem
             {
                 ID = eklenecekUrun.ID,
@@ -66,7 +76,9 @@ namespace Project.WebUI.Controllers
                 ImagePath = eklenecekUrun.ImagePath
             };
             c.SepeteEkle(ci);
-            Session["scart"] = c;
+            Session["scart"] = c; 
+            
+            //todo her ürün eklediğinde shoppingList'e gitmesin!
             return RedirectToAction("ShoppingList");
         }
 

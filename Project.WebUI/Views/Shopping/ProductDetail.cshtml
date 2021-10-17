@@ -1,0 +1,71 @@
+﻿@model ProductVM
+@{
+    ViewBag.Title = "ProductDetail";
+}
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <div class="span8">
+                <article>
+                    <div class="top-wrapper">
+                        <div class="post-heading">
+                            <h3><a href="#">This is an example of portfolio detail</a></h3>
+                        </div>
+                        <!-- start flexslider -->
+                        <div class="flexslider">
+                            <ul class="slides">
+                                <li>
+                                    <img src="@Model.Product.ImagePath" alt="" />
+                                </li>
+                                <li>
+                                    <img src="~/Pictures/donut.png" style="max-width:600px; max-height:600px" alt="" />
+                                </li>
+                                <li>
+                                    <img src="~/Pictures/uludag.jpg" alt="" />
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- end flexslider -->
+                    </div>
+                    <p>
+
+                    </p>
+                </article>
+            </div>
+            <div class="span4">
+                <aside class="right-sidebar">
+                    <div class="widget">
+                        <h5 class="widgetheading">Product information</h5>
+                        <ul class="folio-detail">
+                            <li><label>Name :</label> @Model.Product.ProductName</li>
+                            <li><label>Category :</label> @Model.Product.Category.CategoryName</li>
+                            <li><label>Price :</label> @Model.Product.UnitPrice</li>
+                            <li><label>Stock :</label> @Model.Product.UnitsInStock</li>
+                            <li><label>Sepete Ekle :</label><a href="@Url.Action("AddToCart",new { id=Model.Product.ID})" class="btn btn-dark">
+    <i class="icon-shopping-cart"></i>
+</a></li>
+
+                        </ul>
+                    </div>
+                    <div class="widget">
+                        <h5 class="widgetheading">Text widget</h5>
+                        <p>
+                            
+                            Lorem ipsum dolor sit amet, unum suscipiantur te cum, vide magna ea eam. At eos wisi tractatos temporibus. Ne has omnis harum. Ei mea graece delenit nominati. Ut dolore albucius torquatos vel, choro gubergren no mel.
+                        </p>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Sepet{
+    <li>
+        <a href="@Url.Action("CartPage","Shopping")">
+            <i class="icon-shopping-cart"></i> Cart
+        </a>
+    </li>
+
+}

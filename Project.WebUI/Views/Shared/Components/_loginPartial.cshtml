@@ -1,6 +1,10 @@
-﻿@if (Session["member"] != null)
+﻿@{ AppUser user = (AppUser)HttpContext.Current.Session["member"];
+    AppUser userAdmin = (AppUser)HttpContext.Current.Session["admin"];}
+
+@if (Session["member"] != null)
 {
-    //<li>Hello @user.UserProfile.FirstName</li>
+    //
+    <li><a><strong>Hello @user.UserProfile.FirstName</strong></a></li>
     <li><a href="/register/logout">Çıkış</a></li>
 }
 else if (Session["admin"] != null)
@@ -23,11 +27,11 @@ else if (Session["admin"] != null)
         <a href="#">User <i class="icon-angle-down"></i></a>
         <ul class="dropdown-menu">
             <li><a href="/admin/User/UserList">User List</a></li>
-            
+
 
         </ul>
     </li>
-    //<li>Hello @userAdmin.UserProfile.FirstName</li>
+    <li><a><strong>Hello @userAdmin.UserProfile.FirstName</strong></a></li>
     <li><a href="/register/logout">Çıkış</a></li>
 }
 

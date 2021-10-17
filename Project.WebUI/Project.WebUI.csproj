@@ -53,6 +53,9 @@
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
     </Reference>
@@ -115,9 +118,6 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="WebAPIClient, Version=1.0.3.4, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\WebAPIClient.1.0.3.4\lib\net40\WebAPIClient.dll</HintPath>
     </Reference>
@@ -179,6 +179,41 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="OuterToolsByBeats\assets\css\styles.css" />
+    <Content Include="OuterToolsByBeats\assets\img\case.jpg" />
+    <Content Include="OuterToolsByBeats\assets\img\case.png" />
+    <Content Include="OuterToolsByBeats\assets\img\discount.jpg" />
+    <Content Include="OuterToolsByBeats\assets\img\discount.png" />
+    <Content Include="OuterToolsByBeats\assets\img\favicon.png" />
+    <Content Include="OuterToolsByBeats\assets\img\favicon2.png" />
+    <Content Include="OuterToolsByBeats\assets\img\home.jpg" />
+    <Content Include="OuterToolsByBeats\assets\img\home.png" />
+    <Content Include="OuterToolsByBeats\assets\img\logo.png" />
+    <Content Include="OuterToolsByBeats\assets\img\logo2.png" />
+    <Content Include="OuterToolsByBeats\assets\img\product1.jpg" />
+    <Content Include="OuterToolsByBeats\assets\img\product1.png" />
+    <Content Include="OuterToolsByBeats\assets\img\product2.jpg" />
+    <Content Include="OuterToolsByBeats\assets\img\product2.png" />
+    <Content Include="OuterToolsByBeats\assets\img\product3.jpg" />
+    <Content Include="OuterToolsByBeats\assets\img\product3.png" />
+    <Content Include="OuterToolsByBeats\assets\img\product4.jpg" />
+    <Content Include="OuterToolsByBeats\assets\img\product4.png" />
+    <Content Include="OuterToolsByBeats\assets\img\product5.jpg" />
+    <Content Include="OuterToolsByBeats\assets\img\product5.png" />
+    <Content Include="OuterToolsByBeats\assets\img\specs.jpg" />
+    <Content Include="OuterToolsByBeats\assets\img\specs.png" />
+    <Content Include="OuterToolsByBeats\assets\img\specs2.jpg" />
+    <Content Include="OuterToolsByBeats\assets\img\sponsor1.png" />
+    <Content Include="OuterToolsByBeats\assets\img\sponsor11.png" />
+    <Content Include="OuterToolsByBeats\assets\img\sponsor2.png" />
+    <Content Include="OuterToolsByBeats\assets\img\sponsor22.png" />
+    <Content Include="OuterToolsByBeats\assets\img\sponsor3.png" />
+    <Content Include="OuterToolsByBeats\assets\img\sponsor33.png" />
+    <Content Include="OuterToolsByBeats\assets\img\sponsor4.png" />
+    <Content Include="OuterToolsByBeats\assets\img\sponsor44.png" />
+    <Content Include="OuterToolsByBeats\assets\js\main.js" />
+    <Content Include="OuterToolsByBeats\index.html" />
+    <Content Include="OuterToolsByBeats\preview.png" />
     <Content Include="OuterToolsFlattern\404.html" />
     <Content Include="OuterToolsFlattern\about.html" />
     <Content Include="OuterToolsFlattern\animations.html" />
@@ -375,6 +410,8 @@
     <Content Include="OuterToolsILand\js\menu.js" />
     <Content Include="OuterToolsILand\js\plugins.js" />
     <Content Include="OuterToolsILand\php\subscribe.php" />
+    <Content Include="Pictures\donut.png" />
+    <Content Include="Pictures\uludag.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="OuterToolsILand\fonts\ionicons.eot" />
@@ -399,11 +436,27 @@
     <Content Include="Areas\Admin\Views\Product\UpdateProduct.cshtml" />
     <Content Include="Areas\Admin\Views\User\UserList.cshtml" />
     <Content Include="Areas\Admin\Views\User\UpdateUser.cshtml" />
-    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.4.1.js" />
-    <Content Include="Scripts\jquery-3.4.1.min.js" />
-    <Content Include="Scripts\jquery-3.4.1.slim.js" />
-    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="OuterToolsByBeats\assets\scss\base\_base.scss" />
+    <Content Include="OuterToolsByBeats\assets\scss\components\_buttons.scss" />
+    <Content Include="OuterToolsByBeats\assets\scss\components\_case.scss" />
+    <Content Include="OuterToolsByBeats\assets\scss\components\_discount.scss" />
+    <Content Include="OuterToolsByBeats\assets\scss\components\_footer.scss" />
+    <Content Include="OuterToolsByBeats\assets\scss\components\_header.scss" />
+    <Content Include="OuterToolsByBeats\assets\scss\components\_home.scss" />
+    <Content Include="OuterToolsByBeats\assets\scss\components\_mediaqueries.scss" />
+    <Content Include="OuterToolsByBeats\assets\scss\components\_products.scss" />
+    <Content Include="OuterToolsByBeats\assets\scss\components\_scroll.scss" />
+    <Content Include="OuterToolsByBeats\assets\scss\components\_specs.scss" />
+    <Content Include="OuterToolsByBeats\assets\scss\components\_sponsor.scss" />
+    <Content Include="OuterToolsByBeats\assets\scss\config\_variables.scss" />
+    <Content Include="OuterToolsByBeats\assets\scss\layout\_layout.scss" />
+    <Content Include="OuterToolsByBeats\assets\scss\styles.scss" />
+    <Content Include="OuterToolsByBeats\README.md" />
+    <None Include="Scripts\jquery-3.6.0.intellisense.js" />
+    <Content Include="Scripts\jquery-3.6.0.js" />
+    <Content Include="Scripts\jquery-3.6.0.min.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -421,7 +474,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Register\RegisterOk.cshtml" />
     <Content Include="Views\Register\RegisterNow.cshtml" />
@@ -430,12 +482,14 @@
     <Content Include="Views\Shopping\SiparisiOnayla.cshtml" />
     <Content Include="Views\Shared\Components\_loginPartial.cshtml" />
     <Content Include="Views\Blog\Index.cshtml" />
+    <Content Include="Views\Register\LostPassword.cshtml" />
+    <Content Include="Views\Register\ResetPassword.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shopping\ProductDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Pictures\" />
-    <Folder Include="VMRepository\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -447,8 +501,8 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Scripts\jquery-3.6.0.slim.min.map" />
+    <Content Include="Scripts\jquery-3.6.0.min.map" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Project.BLL\Project.BLL.csproj">
