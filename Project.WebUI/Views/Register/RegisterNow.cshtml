@@ -1,0 +1,67 @@
+﻿@model AppUserVM
+@{
+    ViewBag.Title = "RegisterNow";
+}
+
+<style>
+    .field-validation-error {
+        color: orangered;
+    }
+</style>
+
+<h2>RegisterNow</h2>
+
+<body class="login-body">
+
+    <div class="container">
+
+        @using (Html.BeginForm("RegisterNow", "Register", FormMethod.Post, new { @class = "form-signin" }))
+        {
+            <h2>Üyelik İşlemleri</h2>
+            <div class="login-wrap">
+                @Html.LabelFor(x => x.AppUser.UserName)
+                @Html.TextBoxFor(x => x.AppUser.UserName, new { @class = "form-control", placeholder = "Kullanıcı ismi" })
+                @Html.ValidationMessageFor(x => x.AppUser.UserName)
+                <br />
+                @Html.LabelFor(x => x.AppUser.Password)
+                @Html.PasswordFor(x => x.AppUser.Password, new { @class = "form-control", placeholder = "Sifre giriniz" })
+                @Html.ValidationMessageFor(x => x.AppUser.Password)
+                <br />
+                @Html.LabelFor(x => x.AppUser.ConfirmPassword)
+                @Html.PasswordFor(x => x.AppUser.ConfirmPassword, new { @class = "form-control", placeholder = "Tekrar Sifre giriniz" })
+                @Html.ValidationMessageFor(x => x.AppUser.ConfirmPassword)
+                <br />
+                @Html.LabelFor(x => x.AppUser.Email)
+                @Html.TextBoxFor(x => x.AppUser.Email, new { @class = "form-control", placeholder = "Email giriniz" })
+                @Html.ValidationMessageFor(x => x.AppUser.Email)
+                <br />
+                @Html.LabelFor(x => x.Profile.FirstName)
+                @Html.TextBoxFor(x => x.Profile.FirstName, new { @class = "form-control", placeholder = "İsminizi giriniz" })
+                @Html.ValidationMessageFor(x => x.Profile.FirstName)
+                <br />
+                @Html.LabelFor(x => x.Profile.LastName)
+                @Html.TextBoxFor(x => x.Profile.LastName, new { @class = "form-control", placeholder = "Soyisminizi giriniz" })
+                @Html.ValidationMessageFor(x => x.Profile.LastName)
+                <br />
+
+                Adres Giriniz => <br />
+
+                @Html.TextAreaFor(x => x.Profile.Address, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Profile.Address)
+                <br />
+
+                <br />
+
+                <button class="btn btn-primary">Üye ol</button>
+
+                <div>
+                    @Html.ActionLink("Giriş yap", "Login", "Home")
+                </div>
+
+
+            </div>}
+
+    </div>
+
+
+</body>

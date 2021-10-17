@@ -1,0 +1,39 @@
+﻿@if (Session["member"] != null)
+{
+    //<li>Hello @user.UserProfile.FirstName</li>
+    <li><a href="/register/logout">Çıkış</a></li>
+}
+else if (Session["admin"] != null)
+{
+    <li class="dropdown">
+        <a href="#">Categories <i class="icon-angle-down"></i></a>
+        <ul class="dropdown-menu">
+            <li><a href="/admin/category/categoryList">Category List</a></li>
+            <li><a href="/admin/category/addcategory">Add Category</a></li>
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a href="#">Product <i class="icon-angle-down"></i></a>
+        <ul class="dropdown-menu">
+            <li><a href="/admin/product/productList">Product List</a></li>
+            <li><a href="/admin/product/AddProduct">Add Product</a></li>
+
+        </ul>
+    </li><li class="dropdown">
+        <a href="#">User <i class="icon-angle-down"></i></a>
+        <ul class="dropdown-menu">
+            <li><a href="/admin/User/UserList">User List</a></li>
+            
+
+        </ul>
+    </li>
+    //<li>Hello @userAdmin.UserProfile.FirstName</li>
+    <li><a href="/register/logout">Çıkış</a></li>
+}
+
+else
+{
+    <li>
+        <a href="/home/login">Login </a>
+    </li>
+}

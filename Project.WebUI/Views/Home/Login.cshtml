@@ -1,0 +1,49 @@
+﻿@model Project.WebUI.VMClasses.AppUserVM
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<style>
+    .field-validation-error {
+        color: orangered;
+    }
+</style>
+<h2>Login</h2>
+<body class="login-body">
+
+    <div class="container">
+
+
+
+
+
+        @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { @class = "form-signin" }))
+        {
+<h2 style="color:red">   @ViewBag.Kullanici</h2>
+                <h2 style="color:red">   @ViewBag.AktifDegil</h2>
+                <div class="login-wrap">
+
+                    @Html.TextBoxFor(x => x.AppUser.UserName, new { @class = "form-control", placeholder = "Kullanıcı ismi" })
+                    @Html.ValidationMessageFor(x => x.AppUser.UserName)
+        <br />
+                    @Html.PasswordFor(x => x.AppUser.Password, new { @class = "form-control", placeholder = "Sifre giriniz" })
+                    @Html.ValidationMessageFor(x => x.AppUser.Password)
+
+
+                    <br />
+
+
+                    <button class="btn btn-primary">Giriş Yap</button>
+
+                    <div>
+                        @Html.ActionLink("Üye Ol", "RegisterNow", "Register")
+                    </div>
+
+
+                </div>}
+
+    </div>
+
+
+</body>
