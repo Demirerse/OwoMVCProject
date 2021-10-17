@@ -20,8 +20,7 @@
 
         @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { @class = "form-signin" }))
         {
-<h2 style="color:red">   @ViewBag.Kullanici</h2>
-                <h2 style="color:red">   @ViewBag.AktifDegil</h2>
+                
                 <div class="login-wrap">
 
                     @Html.TextBoxFor(x => x.AppUser.UserName, new { @class = "form-control", placeholder = "Kullanıcı ismi" })

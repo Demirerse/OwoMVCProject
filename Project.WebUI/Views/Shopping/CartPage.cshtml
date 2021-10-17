@@ -22,7 +22,6 @@ else
 {
 <img src="@item.ImagePath" alt="Resim yok" width="100" height="300" title="@item.Name" />}
 
-
             <a href="@Url.Action("DeleteFromCart",new { id=item.ID})" class="btn btn-danger">
                 Delete
             </a>
@@ -30,7 +29,6 @@ else
                 Add
             </a>
         </div>
-
         <div class="panel-body text-center">
             <h4>
                 <a href="#" class="pro-title" title="@item.Name">
@@ -39,12 +37,11 @@ else
             </h4>
             <p class="price">$@item.SubTotal</p>
         </div>
-
-        <div>
-            <a href="@Url.Action("ShoppingList", new {@class="btn btn-info" })">Back to Shopping List</a>
-        </div>
     </section>
 </div>}
+    <div>
+        <a href="@Url.Action("ShoppingList", new {@class="btn btn-info" })">Back to Shopping List</a>
+    </div>
 
 
 

@@ -125,7 +125,7 @@ namespace Project.WebUI.Controllers
             return View();
         }
 
-        //https://localhost:44337/api/Payment/ReceivePayment
+        //https://localhost:44389/api/Payment/ReceivePayment
         [HttpPost]
         public ActionResult SiparisiOnayla(OrderVM ovm)
         {
@@ -139,7 +139,7 @@ namespace Project.WebUI.Controllers
 
             using (HttpClient client = new HttpClient())
             {
-                client.BaseAddress = new Uri("https://localhost:44337/api/");
+                client.BaseAddress = new Uri("https://localhost:44389/api/");
                 Task<HttpResponseMessage> postTask = client.PostAsJsonAsync("Payment/ReceivePayment", ovm.PaymentDTO);
                 HttpResponseMessage sonuc;
 
@@ -184,6 +184,7 @@ namespace Project.WebUI.Controllers
                         _odRep.Add(od);
 
                         //Stoktan düsmesini istiyorsanız
+                        //todo stok 10'a düştüğünde bilgi maili at!
                         Product stokDus = _pRep.Find(item.ID);
                         stokDus.UnitsInStock -= item.Amount;
                         _pRep.Update(stokDus);

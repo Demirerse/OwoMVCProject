@@ -6,6 +6,7 @@
     //
     <li><a><strong>Hello @user.UserProfile.FirstName</strong></a></li>
     <li><a href="/register/logout">Çıkış</a></li>
+
 }
 else if (Session["admin"] != null)
 {
@@ -31,8 +32,15 @@ else if (Session["admin"] != null)
 
         </ul>
     </li>
+    <li class="dropdown">
+        <a href="#">Orders <i class="icon-angle-down"></i></a>
+        <ul class="dropdown-menu">
+            <li><a href="/admin/order/orderList">Order List</a></li>
+        </ul>
+    </li>
     <li><a><strong>Hello @userAdmin.UserProfile.FirstName</strong></a></li>
     <li><a href="/register/logout">Çıkış</a></li>
+
 }
 
 else

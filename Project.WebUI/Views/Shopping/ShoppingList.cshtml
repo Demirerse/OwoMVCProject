@@ -3,96 +3,113 @@
     Layout = "~/Views/Shared/_Layout.cshtml"; }
 
 
-
-
-
-
-<h2 style="color:red">@TempData["sepetBos"]</h2>
-<h2 style="color:red">@TempData["baglantiRed"]</h2>
-<h2 style="color:red">@TempData["sorun"]</h2>
-
-
-
-<div class="row">
-    <div class="col-md-3">
-        <section class="panel">
-            <div class="panel-body">
-                <h2 style="color:aqua">Kategoriler</h2>
-                <ul>
-                    @foreach (Category item in Model.Categories)
-                    {
-        <li style="padding-top:3px">@Html.ActionLink(item.CategoryName, "ShoppingList", new { categoryID = item.ID }, new { @class = "btn btn-primary" })</li>
-}
-                </ul>
-                <ul>@Html.ActionLink("Clear","ShoppingList",new {@class="" })</ul>
-            </div>
-        </section>
-
-    </div>
-    <div class="col-md-9">
-        <section class="panel">
-            <div class="panel-body">
-                <div class="pull-right">
-                    <ul class="pagination pagination-sm">
-                        @if (TempData["catID"] != null)
-                        {
-            <li>@Html.PagedListPager(Model.PagedProducts, page => Url.Action("ShoppingList", new { page, categoryID = TempData["catID"] }))</li>
- }
-        else
-        {
-<li>
-    @Html.PagedListPager(Model.PagedProducts, page => Url.Action("ShoppingList", new { page }))
-</li>
-}
-                    </ul>
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="span4">
+                <div class="inner-heading">
+                    <h2>Shopping <strong>List</strong></h2>
                 </div>
             </div>
-        </section>
-
-        <div class="row product-list">
-
-
-            @foreach (Product item in Model.PagedProducts)
-            {
-<div class="col-md-4">
-    <section class="panel">
-        <div class="pro-img-box">
-
-            @if (item.ImagePath == null)
-            {
-<img src="~/Pictures/donut.png" alt="Resim yok" width="50" height="300" title="@item.ProductName" /> }
-else
-{
-<img src="@item.ImagePath" alt="Resim yok" width="100" height="300" title="@item.ProductName" />}
-
-            @*Url.Action'in bize verdigi fayda,belli durumlarda ACtionLink kullanmak tasarımımıza uygun olmadıgı zamanlarda ortaya cıkar *@
-
-            @*@Html.ActionLink()*@
-
-            <a href="@Url.Action("AddToCart",new { id=item.ID})" class="btn btn-dark">
-                <i class="icon-shopping-cart"></i>
-            </a>
-        </div>
-
-        <div class="panel-body text-center">
-            <h4>
-                <a href="@Url.Action("ProductDetail", new {id=item.ID })" class="pro-title" title="@item.ProductName">
-                    @item.ProductName.Substring(0, 6)
-                </a>
-            </h4>
-            <p class="price">$@item.UnitPrice</p>
-        </div>
-    </section>
-</div>      }
-
-
-
-
-
-
+            <div class="span8">
+                <ul class="breadcrumb">
+                    <li><a href="/home/index"><i class="icon-home"></i></a><i class="icon-angle-right"></i></li>
+                    <li><a href="/shopping/Shoppinglist">Shopping</a><i class="icon-angle-right"></i></li>
+                    <li class="active">Shopping List</li>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
+</section>
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <ul class=" radio">
+                    @foreach (Category item in Model.Categories)
+                    {
+                        <li class="">@Html.ActionLink(item.CategoryName, "ShoppingList", new { categoryID = item.ID }, new { @class = "btn btn-primary" })</li>
+                    }
+                    
+                </ul>
+                <ul>@Html.ActionLink("Clear", "ShoppingList", new { @class = "" })</ul>
+                <div class="col-md-9">
+                    <section class="panel">
+                        <div class="panel-body">
+                            <div class="pull-right">
+                                <ul class="pagination pagination-sm">
+                                    @if (TempData["catID"] != null)
+                                    {
+                        <li>@Html.PagedListPager(Model.PagedProducts, page => Url.Action("ShoppingList", new { page, categoryID = TempData["catID"] }))</li>
+ }
+                    else
+                    {
+            <li>
+                @Html.PagedListPager(Model.PagedProducts, page => Url.Action("ShoppingList", new { page }))
+            </li>
+}
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="clearfix">
+                </div>
+                <div class="row">
+                    <section id="projects">
+                        <ul id="thumbs" class="portfolio">
+                            <!-- Item Project and Filter Name -->
+
+                            @foreach (Product item in Model.PagedProducts)
+                            {
+                <li class="item-thumbs span4 design" data-id="id-0" data-type="web">
+                    <!-- Fancybox - Gallery Enabled - Title - Full Image -->
+
+                    <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="@item.ProductName" href="@Url.Action("ProductDetail", new {id=item.ID })">
+                        <span class="overlay-img"></span>
+                        <span class="overlay-img-thumb font-icon-plus"></span>
+                    </a>
+                    <!-- Thumb Image and Description -->
+                    <img src="@item.ImagePath" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
+                    <a href="@Url.Action("ProductDetail", new {id=item.ID })" class="pro-title" title="@item.ProductName">
+                        @item.ProductName.Substring(0, 6)
+                    </a>
+                    <p class="price">$@item.UnitPrice</p>
+                    <a href="@Url.Action("AddToCart",new { id=item.ID})" class="btn btn-dark">
+                        <i class="icon-shopping-cart"></i>
+                    </a>
+                </li>}
+                            <!-- End Item Project -->
+
+                        </ul>
+                    </section>
+                </div>
+                <div class="clearfix">
+                </div>
+                <div class="col-md-9">
+                    <section class="panel">
+                        <div class="panel-body">
+                            <div class="pull-right">
+                                <ul class="pagination pagination-sm">
+                                    @if (TempData["catID"] != null)
+                                    {
+                        <li>@Html.PagedListPager(Model.PagedProducts, page => Url.Action("ShoppingList", new { page, categoryID = TempData["catID"] }))</li>
+ }
+                    else
+                    {
+            <li>
+                @Html.PagedListPager(Model.PagedProducts, page => Url.Action("ShoppingList", new { page }))
+            </li>
+}
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
 @section Sepet{

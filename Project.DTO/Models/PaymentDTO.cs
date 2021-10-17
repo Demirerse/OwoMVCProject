@@ -10,10 +10,9 @@ namespace Project.DTO.Models
     {
 
         //Sanal Pos Entegrasyonu
-
-        //Normalde bu tarz sınıflar calıstıgınız sirketlerin(Banka/Kargo vs) aldıgınız dökümantasyonlarının kılavuzlugu sayesinde olusturulur...
-
+        //todo validation sorun olur mu? Sor
         public int ID { get; set; }
+        //[Required(ErrorMessage = "Kart uzerindeki adi giriniz")]
         public string CardUserName { get; set; }
         public string SecurityNumber { get; set; }
         public string CardNumber { get; set; }

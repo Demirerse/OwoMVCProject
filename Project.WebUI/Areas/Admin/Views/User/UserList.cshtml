@@ -8,10 +8,7 @@
     <div class="">
 
         <div class="row">
-            @if (TempData["updateUser"] != null)
-            {
-                <div class="alert alert-success">@TempData["updateUser"]</div>
-            }
+            
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
@@ -61,8 +58,8 @@
                                             <td>Aktif Edilmemiş</td>
                                         }
                                         <td>@item.CreatedDate</td>
-                                        <td><a href="@Url.Action("UpdateUser","User",new { Area="Admin",id=item.ID})" class="btn btn-warning"></a></td>
-                                        <td><a href="@Url.Action("DeleteUser","User",new { Area="Admin",id=item.ID})" class="btn btn-danger"></a></td>
+                                        <td><a href="@Url.Action("UpdateUser","User",new { Area="Admin",id=item.ID})" class="btn btn-warning">Güncelle</a></td>
+                                        <td><a href="@Url.Action("DeleteUser","User",new { Area="Admin",id=item.ID})" class="btn btn-danger">Sil</a></td>
                                     </tr>
                                 }
 

@@ -1,0 +1,58 @@
+﻿@model OrderVM
+@{
+    ViewBag.Title = "OrderList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>OrderList</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Email</th>
+            <th>Müşteri ad</th>
+            <th>Ürün adı</th>
+            <th>Fiyat</th>
+            <th>Adeti</th>
+            <th>Ara Toplam</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (OrderDetail item in Model.OrderDetails)
+        {
+            <tr>
+                <td>@item.OrderID</td>
+                <td>@item.Order.Email</td>
+                <td>@item.Order.AppUser.UserName</td>
+                <td>@item.Product.ProductName</td>
+                <td>@item.Product.UnitPrice</td>
+                <td>@item.Quantity</td>
+                <td>@item.TotalPrice</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@foreach (Order item in Model.Orders)
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Sipariş Email</th>
+                <th>Sipariş Kullanıcı Adı</th>
+                <th>Sipariş Toplam Tutar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.AppUser.Email</td>
+                <td>@item.AppUser.UserName</td>
+                <td>@item.TotalPrice</td>
+                
+            </tr>
+        </tbody>
+    </table>
+}
+

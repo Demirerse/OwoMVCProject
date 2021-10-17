@@ -147,6 +147,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrderController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="AuthenticationClasses\AdminAuthentication.cs" />
@@ -452,6 +453,7 @@
     <Content Include="OuterToolsByBeats\assets\scss\layout\_layout.scss" />
     <Content Include="OuterToolsByBeats\assets\scss\styles.scss" />
     <Content Include="OuterToolsByBeats\README.md" />
+    <Content Include="Areas\Admin\Views\Order\OrderList.cshtml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
@@ -486,6 +488,7 @@
     <Content Include="Views\Register\ResetPassword.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shopping\ProductDetail.cshtml" />
+    <Content Include="Views\Shared\Components\_notificationPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,55 @@
+﻿@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success notification">
+        @TempData["Success"]
+    </div>
+}
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger notification">
+        @TempData["Error"]
+    </div>
+}@if (TempData["uyeDegil"] != null)
+{
+    <div class="alert alert-danger notification">
+        @TempData["uyeDegil"]
+    </div>
+}@if (TempData["ResetInfo"] != null)
+{
+    <div class="alert alert-success notification">
+        @TempData["ResetInfo"]
+    </div>
+}@if (TempData["odeme"] != null)
+{
+    <div class="alert alert-success notification">
+        @TempData["odeme"]
+    </div>
+}@if (TempData["sepetBos"] != null)
+{
+    <div class="alert alert-danger notification">
+        @TempData["sepetBos"]
+    </div>
+}@if (TempData["baglantiRed"] != null)
+{
+    <div class="alert alert-danger notification">
+        @TempData["baglantiRed"]
+    </div>
+}@if (TempData["sorun"] != null)
+{
+    <div class="alert alert-danger notification">
+        @TempData["sorun"]
+    </div>
+}
+
+@if (TempData["updateUser"] != null)
+{
+    <div class="alert alert-success">@TempData["updateUser"]</div>
+}
+
+
+
+<h2 style="color:red">   @ViewBag.Kullanici</h2>
+<h2 style="color:red">   @ViewBag.AktifDegil</h2>
+<h2 style="color:red">   @ViewBag.ZatenVar</h2>
+<h2 style="color:red">   @ViewBag.Bilgi</h2>
+

@@ -11,5 +11,7 @@ namespace Project.WebUI.VMClasses
     {
         public PaymentDTO PaymentDTO { get; set; }
         public Order Order { get; set; }
+        public List<Order> Orders { get; set; }
+        public List<OrderDetail> OrderDetails { get; set; }
     }
 }
